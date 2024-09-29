@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* 搜索框容器样式 */
+       .search - container {
+            display: flex;
+            justify - content: center;
+            align - items: center;
+            margin - top: 50px;
+        }
+
+        /* 搜索框样式 */
+       .search - box {
+            display: flex;
+            border: 2px solid #ccc;
+            border - radius: 30px;
+            padding: 5px;
+            width: 300px;
+            height: 40px;
+        }
+
+        /* 搜索输入框样式 */
+       .search - input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 0 10px;
+            font - size: 16px;
+        }
+
+        /* 搜索按钮样式 */
+       .search - button {
+            background - color: #007BFF;
+            color: white;
+            border: none;
+            border - radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin - right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search - container">
+        <div class="search - box">
+            <input type="text" class="search - input" placeholder="请输入搜索内容">
+            <button class="search - button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0 -1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415 -1.414l -3.85 -3.85a1.007 1.007 0 0 0 -.115 -.1zM12 6.5a5.5 5.5 0 1 1 -11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
