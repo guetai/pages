@@ -2,18 +2,12 @@
 * html和css分开（html在/template/pages/index.html,css在/template/pages/index.css,js在/template/pages/index.js）
 * 标题:（正常）这里是GUETAI项目组的宣传页面（离开页面）请不要离开我～（这里选择一个颜文字表情，不要加入该括号文字）
 * 具有导航（色调为粉色），导航固定在网页上方，具有指向主页(s.greenhandzdl.moe或者/)的主页和指向介绍页面的(s.greenhandzdl.moe/about.html或者/about.html)介绍，导航可以点击跳转（行为类似于按钮）
-* 背景图片为随机图片，随机图片为json格式，使用js解析json，获取图片地址，并使用css背景图片设置背景图片（注意：该页面是github静态网页）
+* 背景图片为随机图片,需要加入检测代码:
 ```
-随机图片api:https://www.dmoe.cc/random.php
-参数：type=json
-JSON调用格式：https://www.dmoe.cc/random.php?return=json
-JSON数据：
-{
-    "code":"200" #图片状态码
-    "imgurl":"https:\/\/ws1.sinaimg.cn\/large\/0072Vf1pgy1foxkfy08umj31kw0w0nng.jpg" #图片地址
-    "width":"2048" #图片宽
-    "height":"1152" #图片高
-}
+PC端（横屏）：
+https://t.mwm.moe/pc
+移动端（竖屏）：
+https://t.mwm.moe/mp
 ```
 * 文章部分设置长宽度，不铺满，居中跟上下都有间隔，背景为高斯模糊，可以看得到图片
 * 文章标题加粗剧中，标题内容为“Pages页面模版”，文章内容为“请不要直接访问模版，因为他无效”（注意把文章相关放在一起）

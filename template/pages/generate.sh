@@ -1,40 +1,38 @@
 #!/bin/bash
 
-echo "开始渲染文件..."
-for file in edit/pages/*.txt; do
-    if [[ -f "$file" ]]; then
-        base_name=$(basename "$file" .txt)
-        echo "正在处理: $base_name"
-        
-        # 提取标题和内容
+# 遍历/edit/pages目录下的所有文件
+for file in /edit/pages/*; do
+    if [ -f "$file" ]; then
+        # 读取文件的第一行作为标题
         title=$(head -n 1 "$file")
-        content=$(sed '1d' "$file" | tr '\n' '<br>') # 将换行转换为HTML换行
-        
-        # 创建HTML文件
-        echo "<!DOCTYPE html>
-<html lang='zh'>
+        # 剩余内容作为正文
+        content=$(tail -n +2 "$file")
+
+        # 使用模板生成HTML文件
+        cat <<EOF > "${file%.*}.html"
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>${title}</title>
-    <link rel='stylesheet' href='template/pages/index.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$title</title>
+    <link rel="stylesheet" href="/template/pages/index.css">
+    <script src="/template/pages/index.js" defer></script>
 </head>
 <body>
     <header>
-        <nav style='background-color: pink;'>
-            <a href='/'>主页</a>
-            <a href='/about.html'>介绍</a>
+        <nav>
+            <a href="/" class="nav-link">主页</a>
+            <a href="/about.html" class="nav-link">介绍</a>
         </nav>
     </header>
-    <div id='blurred-background'></div>
+    <div class="background-image"></div>
     <main>
-        <h1 id='page-title'>$title</h1>
-        <p id='page-content'>$content</p>
+        <h1 id="article-title">$title</h1>
+        <p id="article-content">$content</p>
     </main>
-    <script src='template/pages/index.js'></script>
 </body>
-</html>" > "./${base_name}.html"
+</html>
+EOF
     fi
 done
-
-echo "渲染完成."
