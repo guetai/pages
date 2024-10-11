@@ -1,15 +1,12 @@
-// 获取随机图片URL
-fetch('https://www.dmoe.cc/random.php?return=json')
-    .then(response => response.json())
-    .then(data => {
-        if (data.code === '200') {
-            const imageUrl = data.imgurl;
-            document.querySelector('.background-image').style.backgroundImage = `url('${imageUrl}')`;
-        }
-    });
-
-// 添加离开页面提示
-document.addEventListener('beforeunload', function(e) {
-    e.preventDefault();
-    return '👋';
-});
+window.onload = function() {
+    fetch('https://www.dmoe.cc/random.php?return=json')
+        .then(response => response.json())
+        .then(data => {
+            if(data.code === '200') {
+                document.getElementById('blurred-background').style.backgroundImage = `url('${data.imgurl}')`;
+            } else {
+                console.error('无法获取背景图片');
+            }
+        })
+        .catch(error => console.error('请求图片API出错:', error));
+};
