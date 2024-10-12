@@ -128,3 +128,45 @@ body.waiting {
 body.working {
     cursor: url('/res/cursor/GlassStarCursors/Working in Background.ani'), progress;
 }
+/* index.css */
+/* ... 之前的 CSS 代码 ... */
+
+.hover-link {
+    cursor: url('/res/cursor/GlassStarCursors/Link Select.cur'), pointer;
+}
+
+.hover-button {
+    cursor: url('/res/cursor/GlassStarCursors/Pointer.cur'), pointer;
+}
+
+.hover-input {
+    cursor: url('/res/cursor/GlassStarCursors/Text Select.cur'), text;
+}
+
+.resizing {
+    cursor: url('/res/cursor/GlassStarCursors/Vertical Resize.cur'), ns-resize;
+}
+
+.resizing-horizontal {
+    cursor: url('/res/cursor/GlassStarCursors/Horizontal Resize.cur'), ew-resize;
+}
+
+.resizing-diagonal {
+    cursor: url('/res/cursor/GlassStarCursors/Diagonal Resize 1.cur'), nwse-resize;
+}
+
+.resizing-diagonal-reverse {
+    cursor: url('/res/cursor/GlassStarCursors/Diagonal Resize 2.cur'), nesw-resize;
+}
+
+.dragging {
+    cursor: url('/res/cursor/GlassStarCursors/Move.cur'), move;
+}
+
+.waiting {
+    cursor: url('/res/cursor/GlassStarCursors/Busy.ani'), wait;
+}
+
+.working {
+    cursor: url('/res/cursor/GlassStarCursors/Working in Background.ani'), progress;
+}
