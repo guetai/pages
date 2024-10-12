@@ -61,3 +61,68 @@ function setBackgroundImage() {
 
     backgroundImage.style.backgroundImage = `url(${imagePath})`;
 }
+
+// 添加鼠标光标切换逻辑
+document.addEventListener('mousemove', function(event) {
+    const target = event.target;
+
+    if (target.tagName === 'A' && target.href) {
+        document.body.classList.add('hover-link');
+    } else {
+        document.body.classList.remove('hover-link');
+    }
+
+    if (target.tagName === 'BUTTON') {
+        document.body.classList.add('hover-button');
+    } else {
+        document.body.classList.remove('hover-button');
+    }
+
+    if (target.tagName === 'TEXTAREA' || target.tagName === 'INPUT') {
+        document.body.classList.add('hover-input');
+    } else {
+        document.body.classList.remove('hover-input');
+    }
+
+    if (target.classList.contains('resizing')) {
+        document.body.classList.add('resizing');
+    } else {
+        document.body.classList.remove('resizing');
+    }
+
+    if (target.classList.contains('resizing-horizontal')) {
+        document.body.classList.add('resizing-horizontal');
+    } else {
+        document.body.classList.remove('resizing-horizontal');
+    }
+
+    if (target.classList.contains('resizing-diagonal')) {
+        document.body.classList.add('resizing-diagonal');
+    } else {
+        document.body.classList.remove('resizing-diagonal');
+    }
+
+    if (target.classList.contains('resizing-diagonal-reverse')) {
+        document.body.classList.add('resizing-diagonal-reverse');
+    } else {
+        document.body.classList.remove('resizing-diagonal-reverse');
+    }
+
+    if (target.classList.contains('dragging')) {
+        document.body.classList.add('dragging');
+    } else {
+        document.body.classList.remove('dragging');
+    }
+
+    if (target.classList.contains('waiting')) {
+        document.body.classList.add('waiting');
+    } else {
+        document.body.classList.remove('waiting');
+    }
+
+    if (target.classList.contains('working')) {
+        document.body.classList.add('working');
+    } else {
+        document.body.classList.remove('working');
+    }
+});
