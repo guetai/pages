@@ -1,41 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const graveyardModeToggle = document.getElementById('graveyardModeToggle');
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    const contentContainer = document.querySelector('.content-container');
+    const dayModeButton = document.querySelector('.day-mode');
+    const tombstoneModeButton = document.querySelector('.tombstone-mode');
 
-    let isDarkMode = false;
-    let isGraveyardMode = false;
-
-    function toggleDarkMode() {
-        isDarkMode = !isDarkMode;
-        document.body.classList.toggle('dark-mode', isDarkMode);
-        darkModeToggle.textContent = isDarkMode ? '&#9788;' : '&#9728;';
-    }
-
-    function toggleGraveyardMode() {
-        isGraveyardMode = !isGraveyardMode;
-        document.body.classList.toggle('graveyard-mode', isGraveyardMode);
-    }
-
-    darkModeToggle.addEventListener('click', toggleDarkMode);
-    graveyardModeToggle.addEventListener('click', toggleGraveyardMode);
-
-    // Background Image Detection
-    window.addEventListener('load', () => {
+    function setBackgroundImage() {
         const backgroundImageElement = document.querySelector('.background-image');
         if (backgroundImageElement) {
-            setBackgroundImage(backgroundImageElement);
+            backgroundImageElement.style.backgroundImage = `url('/res/background/${window.innerWidth > 600 ? 'pc_image.png' : 'mp_image.png'})`;
         }
+    }
+
+    window.addEventListener('resize', setBackgroundImage);
+
+    dayModeButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        dayModeButton.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
     });
 
-    function setBackgroundImage(element) {
-        const isMobile = window.innerWidth <= 600;
-        const imagePath = isMobile ? '/res/background/mp_image.png' : '/res/background/pc_image.png';
-        element.style.backgroundImage = `url(${imagePath})`;
-        element.style.width = '100%';
-        element.style.height = '100%';
-        element.style.position = 'fixed';
-        element.style.top = '0';
-        element.style.left = '0';
-        element.style.zIndex = '-1';
-    }
+    tombstoneModeButton.addEventListener('click', function() {
+        document.body.classList.toggle('tombstone-mode');
+        tombstoneModeButton.textContent = document.body.classList.contains('tombstone-mode') ? '🪦' : '🪦';
+    });
+
+    setBackgroundImage();
 });
