@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
 }
 
@@ -11,29 +10,27 @@ body {
     width: 100%;
     background-color: pink;
     color: black;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
     z-index: 1000;
 }
 
 .navbar a {
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
 }
 
 .content {
     margin-top: 60px;
-    width: 80%;
-    max-width: 1200px;
+    padding: 20px;
+    width: 50%;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -41,7 +38,7 @@ body {
     font-weight: bold;
 }
 
-.theme-buttons {
+.toggle-buttons {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -49,27 +46,19 @@ body {
     gap: 10px;
 }
 
-.theme-buttons button {
-    background: transparent;
+.toggle-buttons button {
+    background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .background-image {
-        background-image: url('/res/background/mp_image.png');
-    }
-} 
+/* Dark Mode */
+body.dark-mode {
+    background-color: black;
+    color: lightgray;
+}
 
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/res/background/pc_image.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
+body.graveyard-mode {
+    filter: grayscale(100%);
 }

@@ -1,37 +1,59 @@
 #!/bin/bash
 
-# Ensure the output directory exists
+# Ensure we're in the correct directory
+cd /edit/pages || exit
+
+# Create output directory if it doesn't exist
 mkdir -p /public/pages
 
-# Process each markdown file in edit/pages
-for file in /edit/pages/*.md; do
-    # Extract timestamp from filename
-    timestamp=$(basename "$file" .md)
-    
-    # Convert markdown to HTML
+# Process each file in the directory
+for file in *.md; do
+    # Extract timestamp for filename
+    timestamp=$(date +%s)
+    outfile="/public/pages/${timestamp}.html"
+
+    # Convert Markdown to HTML and apply custom processing
     markdown_content=$(cat "$file")
-    
-    # Replace images, videos, or audio
     markdown_content=$(echo "$markdown_content" | sed -E 's/!\[(.*)\]\((.*)\)/\1 \2/')
-    while read line; do
-        name=$(echo "$line" | awk '{print $1}')
-        url=$(echo "$line" | awk '{print $2}')
-        extension="${url##*.}"
-        case "$extension" in
-            jpg|jpeg|png|gif)
-                echo "<img src=\"$url\" alt=\"$name\">" ;;
-            mp4|webm)
-                echo "<video controls><source src=\"$url\" type=\"video/$extension\"></video>" ;;
-            mp3|wav)
-                echo "<audio controls><source src=\"$url\" type=\"audio/$extension\"></audio>" ;;
-            *)
-                echo "<!-- Unsupported media format: $url -->" ;;
-        esac
-    done <<< "$markdown_content" > /public/pages/"$timestamp".html
-    
-    # Prepend HTML template
-    cat /template/pages/index.html | sed "s|<body>|<body>\n$(cat /public/pages/"$timestamp".html)|" > /tmp/tmp.html && mv /tmp/tmp.html /public/pages/"$timestamp".html
+
+    # Generate HTML
+    echo "<!DOCTYPE html>" > "$outfile"
+    echo "<html lang=\"zh-CN\">" >> "$outfile"
+    echo "<head>" >> "$outfile"
+    echo "    <meta charset=\"UTF-8\">" >> "$outfile"
+    echo "    <title>Generated Page</title>" >> "$outfile"
+    echo "</head>" >> "$outfile"
+    echo "<body>" >> "$outfile"
+    echo "    <!-- Content will be generated here -->" >> "$outfile"
+
+    while IFS= read -r line; do
+        if [[ $line == \[* ]]; then
+            name=$(echo "$line" | awk '{print $1}')
+            url=$(echo "$line" | awk '{print $2}')
+            extension="${url##*.}"
+            case "$extension" in
+                jpg|jpeg|png|gif)
+                    echo "<img src=\"$url\" alt=\"$name\">" >> "$outfile"
+                    ;;
+                mp4|webm)
+                    echo "<video controls><source src=\"$url\" type=\"video/$extension\"></video>" >> "$outfile"
+                    ;;
+                mp3|wav)
+                    echo "<audio controls><source src=\"$url\" type=\"audio/$extension\"></audio>" >> "$outfile"
+                    ;;
+                *)
+                    echo "<!-- Unsupported media format: $url -->" >> "$outfile"
+                    ;;
+            esac
+        else
+            echo "$line" >> "$outfile"
+        fi
+    done <<< "$markdown_content"
+
+    echo "</body>" >> "$outfile"
+    echo "</html>" >> "$outfile"
+
 done
 
-# Sort generated files by timestamp
-ls -t /public/pages/*.html | xargs -I {} mv {} /public/pages/$(basename {} .html).html
+# Sort files by timestamp
+ls -t /public/pages/*.html | xargs -I {} mv {} $(dirname {})/$(basename {} | sort -n)
