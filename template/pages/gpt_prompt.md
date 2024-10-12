@@ -1,4 +1,5 @@
 请重新输出代码，在输出代码之前打印文件树（不要在bash里面打印），所有/都是相对于项目而言，是相对路径
+注意：该代码在Github Pages上面部署。
 ```
 注意不要再次出现这些问题
 [Error] TypeError: null is not an object (evaluating 'document.querySelector('.background-image').style')
@@ -22,8 +23,43 @@ PC端（横屏）：
 ```
 * 文章部分设置长宽度，不铺满，居中跟上下都有间隔，背景为高斯模糊（透明度稍微降低），有阴影感，可以看得到图片
 * 文章标题加粗剧中，标题内容为“Pages页面模版”，文章内容为“请不要直接访问模版，因为他无效”（注意把文章相关放在一起）
-* 页面右下角(不是footer，类似于上面的导航栏，悬空)出现两个按钮，一个按钮为黑夜模式切换（注意实现自动切换，当处于白天则为默认，按钮是太阳的标志，当处于晚上则将导航栏颜色换成黑色，字体换成浅灰色，总之是偏黑色主题，按钮是月亮标志），另一个按钮是墓碑模式，按钮是墓碑的标志（默认是不打开，当打开是全局灰色，并且用灰色填充按钮）
+* 页面右下角(不是footer，类似于上面的导航栏，悬空)出现两个按钮。
+类似于的外观
+```
+<div class="csdn-side-toolbar ">
+    <a class="option-box no—h" data-type="app">
+      <img src="https://g.csdnimg.cn/side-toolbar/3.0/images/qr.png" alt="" srcset="">
+      <span class="show-txt">手机看</span>
+      <div class="app-qr-box">
+        <div class="bg-box">
+          
+      <div class="qr-item-box">
+        <img src="https://g.csdnimg.cn/side-toolbar/3.0/images/qr_wechat.png" alt="关注公众号">
+        <p class="desc">关注公众号</p>
+      </div>
+      
+      <div class="qr-item-box">
+        <img src="https://g.csdnimg.cn/side-toolbar/3.0/images/qr_app.png" alt="下载APP">
+        <p class="desc">下载APP</p>
+      </div>
+      
+        </div>
+      </div>
+    </a>
+    <a class="option-box" data-type="cs">
+      <img src="https://g.csdnimg.cn/side-toolbar/3.0/images/kefu.png" alt="" srcset="">
+      <span class="show-txt">客服</span>
+    </a>
+    <a class="option-box go-top-hide" data-type="gotop">
+      <img src="https://g.csdnimg.cn/side-toolbar/3.0/images/fanhuidingbucopy.png" alt="" srcset="">
+      <span class="show-txt">返回<br>顶部</span>
+    </a>
+  </div>
+```
 页面右下角功能请在javascript和css里面实现，不要访问外部链接
+一个按钮为黑夜模式切换（注意实现自动切换，当处于白天则为默认，按钮是太阳的标志，当处于晚上则将导航栏颜色换成黑色，字体换成浅灰色，总之是偏黑色主题，按钮是月亮标志）。
+另一个按钮是墓碑模式，按钮是墓碑的标志（默认是不打开，当打开是全局灰色，并且用灰色填充按钮）
+
 除此之外，我想请你用bash（bash文件放置于/template/pages/generate.sh
 ）实现渲染，要求如下：
 * 读取/edit/pages目录下（不是/template/pages目录下）所有文件，并且进行渲染
