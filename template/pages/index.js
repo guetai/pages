@@ -13,17 +13,24 @@ function setBackgroundImage() {
     }
 }
 
-setBackgroundImage();
+// 确保 DOM 完全加载后再执行
+document.addEventListener('DOMContentLoaded', function() {
+    setBackgroundImage();
 
-const darkModeToggle = document.querySelector('.dark-mode-toggle');
-const tombstoneModeToggle = document.querySelector('.tombstone-mode-toggle');
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    const tombstoneModeToggle = document.querySelector('.tombstone-mode-toggle');
 
-darkModeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
-});
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+        });
+    }
 
-tombstoneModeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('tombstone-mode');
-    tombstoneModeToggle.textContent = document.body.classList.contains('tombstone-mode') ? '🪦' : '🪦';
+    if (tombstoneModeToggle) {
+        tombstoneModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('tombstone-mode');
+            tombstoneModeToggle.textContent = document.body.classList.contains('tombstone-mode') ? '🪦' : '🪦';
+        });
+    }
 });

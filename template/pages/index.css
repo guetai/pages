@@ -81,3 +81,14 @@ body {
         background-image: url('/res/background/mp_image.png');
     }
 }
+
+/* 黑暗模式 */
+body.dark-mode {
+    background-color: black;
+    color: lightgray;
+}
+
+/* 墓碑模式 */
+body.tombstone-mode {
+    filter: grayscale(100%);
+}
