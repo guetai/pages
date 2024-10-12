@@ -1,0 +1,48 @@
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%Cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%Unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+
+[Scheme.Cur]
+"Normal.cur"
+"Help Select.cur"
+"Working in Background.ani"
+"Busy.ani"
+"Precision Select.cur"
+"Text Select.cur"
+"Handwriting.cur"
+"Unavailable.cur"
+"Vertical Resize.cur"
+"Horizontal Resize.cur"
+"Diagonal Resize 1.cur"
+"Diagonal Resize 2.cur"
+"Move.cur"
+"Alternate Select.cur"
+"Link Select.cur"
+
+[Strings]
+CUR_DIR     = "Cursors\Glass Star"
+SCHEME_NAME = "Glass Star"
+alternate   = "Alternate Select.cur"
+busy    = "Busy.ani"
+cross   = "Precision Select.cur"
+dgn1    = "Diagonal Resize 1.cur"
+dgn2    = "Diagonal Resize 2.cur"
+hand    = "Handwriting.cur"
+help    = "Help Select.cur"
+horz    = "Horizontal Resize.cur"
+link    = "Link Select.cur"
+move    = "Move.cur"
+pointer = "Normal.cur"
+text    = "Text Select.cur"
+unavailiable = "Unavailable.cur"
+vert    = "Vertical Resize.cur"
+work    = "Working in Background.ani"
