@@ -1,19 +1,35 @@
 #!/bin/bash
 
+rm -rf public/pages
 # 创建输出目录
-mkdir -p /public/pages
+mkdir -p public/pages
 
 # 获取编辑目录下的所有文件
-files=($(find /edit/pages -type f))
+files=($(find edit/pages -type f))
 
 # 按照时间顺序排序
 IFS=$'\n' files=($(sort -t. -k1,1 -k2n <<<"${files[*]}"))
 unset IFS
 
+# 获取文件的修改时间
+get_timestamp() {
+    if [ -f "$1" ]; then
+        ls -l "$1" | awk '{print $6 " " $7 " " $8}'
+    else
+        echo "File not found: $1"
+        return 1
+    fi
+}
+
 # 遍历文件并生成HTML
 for file in "${files[@]}"; do
-    timestamp=$(date +%s -r "$file")
-    output_file="/public/pages/${timestamp}.html"
+    # 获取文件的修改时间
+    timestamp=$(get_timestamp "$file")
+    if [ $? -ne 0 ]; then
+        continue
+    fi
+
+    output_file="public/pages/${timestamp}-${file##*/}.html"
 
     # 读取内容并转换为HTML
     markdown_content=$(cat "$file")
