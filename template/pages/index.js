@@ -22,6 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 设置背景图片
     setBackgroundImage();
+
+    // 检测系统偏好设置
+    if (window.matchMedia) {
+        var mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQueryList.addListener(function(e) {
+            if (e.matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    }
 });
 
 function toggleDarkMode() {
