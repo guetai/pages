@@ -10,15 +10,19 @@
 </head>
 <body>
     <header class="navbar">
-        <a href="/">主页</a>
-        <a href="/about.html">介绍</a>
+        <a href="/" class="nav-item">主页</a>
+        <a href="/about.html" class="nav-item">介绍</a>
     </header>
 
-    <div class="content-container">
-        <h1 class="page-title">Pages页面模版</h1>
-        <p class="page-content">请不要直接访问模版，因为他无效</p>
-        <button class="mode-switcher day-mode">☀️</button>
-        <button class="mode-switcher tombstone-mode">🪦</button>
-    </div>
+    <div class="background-image"></div>
+
+    <main class="content">
+        <h1>Pages页面模版</h1>
+        <div class="mode-buttons">
+            <button id="darkModeToggle">☀️</button>
+            <button id="graveyardModeToggle">🪦</button>
+        </div>
+        <p>请不要直接访问模版，因为他无效</p>
+    </main>
 </body>
 </html>

@@ -70,3 +70,6 @@ PC端（横屏）：
 ```
 TypeError: null is not an object (evaluating 'document.querySelector('.background-image').style')
 ```
+```
+TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
+```
