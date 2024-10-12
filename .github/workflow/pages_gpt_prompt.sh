@@ -44,5 +44,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 ```
-1.在每次提交commit或者每天中午12点(utc-8)，运行该workflows
+1.在每次提交commit或者每天中午12点(utc-8)或者手动运行，运行该workflows
 2.在推送到pages的时候，请先运行/template/pages/generate.sh生成相应的文件（/是项目目录）
