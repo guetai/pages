@@ -1,3 +1,4 @@
+// index.js
 document.addEventListener('DOMContentLoaded', function() {
     // 获取暗黑模式切换按钮
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
@@ -20,20 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         tombstoneModeToggle.addEventListener('click', toggleTombstoneMode);
     }
 
-    // 设置背景图片
+    // 设置初始背景图片
     setBackgroundImage();
-
-    // 检测系统偏好设置
-    if (window.matchMedia) {
-        var mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-        mediaQueryList.addListener(function(e) {
-            if (e.matches) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-        });
-    }
 });
 
 function toggleDarkMode() {
@@ -62,7 +51,13 @@ document.addEventListener('visibilitychange', function() {
 
 function setBackgroundImage() {
     const backgroundImage = document.querySelector('.background-image');
-    if (backgroundImage) {
-        backgroundImage.style.display = 'block';
+    if (!backgroundImage) {
+        console.error('无法找到 .background-image 元素');
+        return;
     }
+
+    const isMobile = window.innerWidth <= 768; // 假设 768px 作为移动设备的阈值
+    const imagePath = isMobile ? '/res/background/mp_image.png' : '/res/background/pc_image.png';
+
+    backgroundImage.style.backgroundImage = `url(${imagePath})`;
 }
