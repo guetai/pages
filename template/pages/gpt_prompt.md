@@ -73,3 +73,7 @@ TypeError: null is not an object (evaluating 'document.querySelector('.backgroun
 ```
 TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
 ```
+```
+[Error] TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
+	（匿名函数） (index.js:19)
+```
