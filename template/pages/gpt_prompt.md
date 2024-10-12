@@ -1,7 +1,7 @@
 请重新输出代码，在输出代码之前打印文件树（不要在bash里面打印），所有/都是相对于项目而言，是相对路径
 注意：该代码在Github Pages上面部署。
 ```
-注意不要再次出现这些问题
+注意不要再次出现这些问题（注意css文件确保在设置背景图片之前，页面中的 .background-image 元素确实存在。）
 [Error] TypeError: null is not an object (evaluating 'document.querySelector('.background-image').style')
 	setBackgroundImage (index.js:13)
 	全局代码 (index.js:23)
