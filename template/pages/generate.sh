@@ -70,6 +70,7 @@ for file in "${files[@]}"; do
         <button class="mode-toggle dark-mode-toggle">☀️</button>
         <button class="mode-toggle tombstone-mode-toggle">🪦</button>
     </div>
+    <div class="background-image"></div>
 </body>
 </html>
 EOF
