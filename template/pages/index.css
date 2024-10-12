@@ -1,94 +1,94 @@
 body {
-    margin: 0;  /* 移除默认外边距 */
-    font-family: Arial, sans-serif;  /* 设置字体 */
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .navbar {
-    position: fixed;  /* 固定定位 */
-    top: 0;  /* 顶部距离 */
-    width: 100%;  /* 宽度占满屏幕 */
-    background-color: pink;  /* 背景颜色 */
-    color: black;  /* 文字颜色 */
-    display: flex;  /* 使用弹性布局 */
-    justify-content: space-around;  /* 子元素均匀分布 */
-    padding: 10px 0;  /* 上下内边距 */
-    z-index: 1000;  /* 层叠顺序 */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: pink;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
 }
 
 .navbar a {
-    text-decoration: none;  /* 移除链接下划线 */
-    color: inherit;  /* 继承父元素颜色 */
+    text-decoration: none;
+    color: inherit;
 }
 
 .content-container {
-    margin-top: 60px;  /* 顶部外边距 */
-    width: 70%;  /* 宽度 */
-    max-width: 800px;  /* 最大宽度 */
-    margin-left: auto;  /* 左侧外边距自动 */
-    margin-right: auto;  /* 右侧外边距自动 */
-    background: rgba(255, 255, 255, 0.7);  /* 半透明背景 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* 盒阴影效果 */
-    border-radius: 10px;  /* 边框圆角 */
-    padding: 20px;  /* 内边距 */
-    text-align: center;  /* 文本居中对齐 */
+    margin-top: 60px;
+    width: 70%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
 }
 
 .page-title {
-    font-weight: bold;  /* 字体加粗 */
-    margin-bottom: 20px;  /* 底部外边距 */
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .mode-toggle {
-    position: fixed;  /* 固定定位 */
-    bottom: 20px;  /* 底部距离 */
-    right: 20px;  /* 右侧距离 */
-    background: none;  /* 无背景 */
-    border: none;  /* 无边框 */
-    font-size: 24px;  /* 字体大小 */
-    cursor: pointer;  /* 鼠标指针变为手型 */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .dark-mode-toggle {
-    color: black;  /* 暗模式按钮文字颜色 */
+    color: black;
 }
 
 .tombstone-mode-toggle {
-    color: gray;  /* 墓碑模式按钮文字颜色 */
+    color: gray;
 }
 
-@media (max-width: 768px) {  /* 响应式布局，屏幕宽度小于等于768px */
+@media (max-width: 768px) {
     .content-container {
-        width: 90%;  /* 更小的宽度 */
+        width: 90%;
     }
 }
 
 /* 背景图片 */
 .background-image {
-    background-image: url('/res/background/pc_image.png');  /* 背景图片 */
-    background-size: cover;  /* 图片覆盖整个容器 */
-    background-position: center;  /* 背景图片居中 */
-    background-repeat: no-repeat;  /* 不重复背景图片 */
-    height: 100vh;  /* 高度为视窗高度 */
-    width: 100vw;  /* 宽度为视窗宽度 */
-    position: fixed;  /* 固定定位 */
-    top: 0;  /* 顶部距离 */
-    left: 0;  /* 左侧距离 */
-    z-index: -1;  /* 层叠顺序 */
+    background-image: url('/res/background/pc_image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-@media (max-width: 768px) {  /* 响应式布局，屏幕宽度小于等于768px */
+@media (max-width: 768px) {
     .background-image {
-        background-image: url('/res/background/mp_image.png');  /* 移动端背景图片 */
+        background-image: url('/res/background/mp_image.png');
     }
 }
 
 /* 黑暗模式 */
 body.dark-mode {
-    background-color: black;  /* 背景颜色 */
-    color: lightgray;  /* 文字颜色 */
+    background-color: black;
+    color: lightgray;
 }
 
 /* 墓碑模式 */
 body.tombstone-mode {
-    filter: grayscale(100%);  /* 将页面转换为灰度模式 */
+    filter: grayscale(100%);
 }

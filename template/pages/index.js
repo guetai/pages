@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // 添加点击事件监听器
         tombstoneModeToggle.addEventListener('click', toggleTombstoneMode);
     }
+
+    // 设置背景图片
+    setBackgroundImage();
 });
 
 function toggleDarkMode() {
@@ -51,7 +54,3 @@ function setBackgroundImage() {
         backgroundImage.style.display = 'block';
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    setBackgroundImage();
-});
