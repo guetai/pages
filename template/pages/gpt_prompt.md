@@ -65,4 +65,7 @@ PC端（横屏）：
 ```
 
 第二次输入：
-你生成代码的js中13行还是出现了问题。具体来说，我们需要确保在设置背景图片之前，页面中的.background-image 元素确实存在。
+你生成代码的js。
+```
+TypeError: null is not an object (evaluating 'document.querySelector('.background-image').style')
+```

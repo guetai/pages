@@ -19,29 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
     darkModeToggle.addEventListener('click', toggleDarkMode);
     graveyardModeToggle.addEventListener('click', toggleGraveyardMode);
 
-// ...其他代码保持不变...
-
-window.addEventListener('DOMContentLoaded', () => {
-    // ...其他初始化代码...
-
-    // 确保背景图元素存在再尝试设置图片
-    const setBackgroundImageWhenReady = () => {
+    // Background Image Detection
+    window.addEventListener('load', () => {
         const backgroundImageElement = document.querySelector('.background-image');
         if (backgroundImageElement) {
             setBackgroundImage(backgroundImageElement);
-        } else {
-            // 如果元素还不存在，稍后再试
-            setTimeout(setBackgroundImageWhenReady, 100); // 例如，延迟100毫秒再次尝试
         }
-    };
+    });
 
-    setBackgroundImageWhenReady(); // 首次尝试设置背景图
-});
-
-function setBackgroundImage(element) {
-    const isMobile = window.innerWidth <= 600;
-    const imagePath = isMobile ? '/res/background/mp_image.png' : '/res/background/pc_image.png';
-    element.style.backgroundImage = `url(${imagePath})`;
-    // 可以在这里移除监听器，如果确定只设置一次
-}
+    function setBackgroundImage(element) {
+        const isMobile = window.innerWidth <= 600;
+        const imagePath = isMobile ? '/res/background/mp_image.png' : '/res/background/pc_image.png';
+        element.style.backgroundImage = `url(${imagePath})`;
+        element.style.width = '100%';
+        element.style.height = '100%';
+        element.style.position = 'fixed';
+        element.style.top = '0';
+        element.style.left = '0';
+        element.style.zIndex = '-1';
+    }
 });
