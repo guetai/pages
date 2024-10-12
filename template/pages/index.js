@@ -31,9 +31,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    const setupLeavePageMessage = () => {
+        const pageTitle = document.getElementById('page-title');
+        const originalTitle = pageTitle.textContent;
+
+        const handleMouseLeave = () => {
+            pageTitle.textContent = "请不要离开我～ 😢";
+        };
+
+        const handleMouseEnter = () => {
+            pageTitle.textContent = originalTitle;
+        };
+
+        pageTitle.addEventListener('mouseleave', handleMouseLeave);
+        pageTitle.addEventListener('mouseenter', handleMouseEnter);
+    };
+
     setBackgroundImage();
     setupDarkModeToggle();
     setupGraveyardModeToggle();
+    setupLeavePageMessage();
 
     // 添加对夜间模式和墓碑模式的支持
     document.documentElement.style.setProperty('--dark-bg', '#121212');

@@ -77,3 +77,5 @@ TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
 [Error] TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
 	（匿名函数） (index.js:19)
 ```
+图片不是拉伸到页面大小。
+标题:（正常）这里是GUETAI项目组的宣传页面（离开页面）请不要离开我～（这里选择一个颜文字表情，不要加入该括号文字）
