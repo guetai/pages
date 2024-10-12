@@ -6,9 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    setBackgroundImage(window.innerWidth > 600 ? '/template/pages/pc_image.png' : '/template/pages/mp_image.png');
+    const updateBackgroundImage = () => {
+        setBackgroundImage(window.innerWidth > 600 ? '/template/pages/pc_image.png' : '/template/pages/mp_image.png');
+    };
 
-    // 模拟按钮点击事件
+    updateBackgroundImage();
+    window.addEventListener('resize', updateBackgroundImage);
+
     document.querySelector('.dark-mode-toggle').addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
     });
