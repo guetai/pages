@@ -18,6 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .navigation nav {
@@ -47,10 +48,10 @@ body {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .article-title {
-    text-align: center;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -59,7 +60,7 @@ body {
     text-align: center;
 }
 
-.buttons {
+.mode-buttons {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -91,6 +92,7 @@ body.dark-mode .navigation {
     color: lightgray;
 }
 
+/* Grave Mode */
 body.grave-mode {
     background-color: gray;
     color: lightgray;
