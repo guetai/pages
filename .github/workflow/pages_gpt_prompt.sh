@@ -1,14 +1,12 @@
+请你更改下面的Workflow，使其更符合我的需求。
+```
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the main branch
+  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Runs daily at 12 PM UTC-8 (4 AM UTC)
-  schedule:
-    - cron: '0 4 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,22 +33,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Generate Static Content
-        run: |
-          cd template/pages
-          ./generate.sh
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
-      - name: Upload Artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'template/pages'  # Upload generated files
-
+          # Upload entire repository
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+```
+1.在每次提交commit或者每天中午12点(utc-8)，运行该workflows
+2.在推送到pages的时候，请先运行/template/pages/generate.sh生成相应的文件（/是项目目录）
