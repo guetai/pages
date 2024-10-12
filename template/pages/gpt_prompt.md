@@ -1,4 +1,11 @@
-请在输出代码之前打印文件树，所有/都是相对于项目而言，是相对路径
+请重新输出代码，在输出代码之前打印文件树（不要在bash里面打印），所有/都是相对于项目而言，是相对路径
+```
+注意不要再次出现这些问题
+[Error] TypeError: null is not an object (evaluating 'document.querySelector('.background-image').style')
+	setBackgroundImage (index.js:13)
+	全局代码 (index.js:23)
+[Error] Failed to load resource: the server responded with a status of 500 (Request Blocked) (s.js, line 0)
+```
 你好，我想请你用html+css帮我实现一个页面，要求如下:
 * html和css分开（html在/template/pages/index.html,css在/template/pages/index.css,js在/template/pages/index.js）
 * 标题:（正常）这里是GUETAI项目组的宣传页面（离开页面）请不要离开我～（这里选择一个颜文字表情，不要加入该括号文字）
@@ -20,6 +27,7 @@ PC端（横屏）：
 除此之外，我想请你用bash（bash文件放置于/template/pages/generate.sh
 ）实现渲染，要求如下：
 * 读取/edit/pages目录下（不是/template/pages目录下）所有文件，并且进行渲染
+* 注意：渲染应该按照时间顺序，在/public/pages目录下生成，并且按照文件名排序，文件名是时间戳，文件名后缀是.html
 * 渲染规则（重叠处参考上面内容）：
 ```
 标题是#开头文字
