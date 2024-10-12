@@ -12,6 +12,7 @@ PC端（横屏）：
 移动端（竖屏）：
 /template/pages/mp_image.png
 ```
+检查 JavaScript 文件： 确保在执行 document.querySelector('.background-image') 时，DOM 已经加载完成。
 * 文章部分设置长宽度，不铺满，居中跟上下都有间隔，背景为高斯模糊（透明度稍微降低），可以看得到图片
 * 文章标题加粗剧中，标题内容为“Pages页面模版”，文章内容为“请不要直接访问模版，因为他无效”（注意把文章相关放在一起）
 * 页面右下角出现两个按钮，一个按钮为黑夜模式切换（注意实现自动切换，当处于白天则为默认，按钮是太阳的标志，当处于晚上则将导航栏颜色换成黑色，字体换成浅灰色，总之是偏黑色主题，按钮是月亮标志），另一个按钮是墓碑模式，按钮是墓碑的标志（默认是不打开，当打开是全局灰色，并且用灰色填充按钮）
@@ -26,4 +27,26 @@ PC端（横屏）：
 
 注意：以下需要用脚本在链接里面识别这是什么后缀，并且相应渲染出来，不要只用img标签来标注
 ![视频或者音频或者图片名字](链接)
+类似于
+
+    # 替换图片、视频或音频
+    markdown_content=$(echo "$markdown_content" | sed -E 's/!\[(.*)\]\((.*)\)/\1 \2/' | while read line; do
+        name=$(echo "$line" | awk '{print $1}')
+        url=$(echo "$line" | awk '{print $2}')
+        extension="${url##*.}"
+        case "$extension" in
+            jpg|jpeg|png|gif)
+                echo "<img src=\"$url\" alt=\"$name\">"
+                ;;
+            mp4|webm)
+                echo "<video controls><source src=\"$url\" type=\"video/$extension\"></video>"
+                ;;
+            mp3|wav)
+                echo "<audio controls><source src=\"$url\" type=\"audio/$extension\"></audio>"
+                ;;
+            *)
+                echo "<!-- Unsupported media format: $url -->"
+                ;;
+        esac
+    done)
 ```

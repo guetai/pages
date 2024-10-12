@@ -1,24 +1,32 @@
-// 设置背景图片
-function setBackgroundImage() {
-    const imageUrl = window.matchMedia("(min-width: 768px)").matches ? '/template/pages/pc_image.png' : '/template/pages/mp_image.png';
-    document.body.style.backgroundImage = `url('${imageUrl}')`;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const backgroundImage = document.querySelector('.background-image');
+    if (backgroundImage) {
+        setBackgroundImage();
+    }
 
-// 添加离开页面提示
-document.addEventListener('beforeunload', function(e) {
-    e.preventDefault();
-    return '👋 请不要离开我～';
+    const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
+    const toggleGraveModeButton = document.getElementById('toggle-grave-mode');
+
+    toggleDarkModeButton.addEventListener('click', toggleDarkMode);
+    toggleGraveModeButton.addEventListener('click', toggleGraveMode);
+
+    function setBackgroundImage() {
+        if (window.innerWidth > 600) {
+            backgroundImage.style.backgroundImage = 'url("/template/pages/pc_image.png")';
+        } else {
+            backgroundImage.style.backgroundImage = 'url("/template/pages/mp_image.png")';
+        }
+    }
+
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        toggleDarkModeButton.classList.toggle('active');
+        toggleGraveModeButton.classList.remove('active');
+    }
+
+    function toggleGraveMode() {
+        document.body.classList.toggle('grave-mode');
+        toggleGraveModeButton.classList.toggle('active');
+        toggleDarkModeButton.classList.remove('active');
+    }
 });
-
-// 切换暗黑模式
-document.getElementById('dark-mode-button').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-});
-
-// 切换墓碑模式
-document.getElementById('tombstone-mode-button').addEventListener('click', function() {
-    document.body.classList.toggle('tombstone-mode');
-});
-
-// 初始化背景图片
-setBackgroundImage();

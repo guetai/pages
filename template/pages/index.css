@@ -1,103 +1,117 @@
+/* 基础样式 */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
-header {
+/* 导航栏 */
+.navigation {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: pink;
-    padding: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     z-index: 1000;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-nav a {
-    color: white;
+.navigation nav {
+    display: flex;
+    gap: 20px;
+}
+
+.navigation nav a {
     text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
 }
 
-nav a:hover {
+.navigation nav a:hover {
     background-color: lightpink;
 }
 
+/* 背景图片 */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* 文章部分 */
 .content {
-    position: relative;
-    top: 100px; /* 调整与导航栏的距离 */
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.article {
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.article-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.article-text {
     text-align: center;
 }
 
-h1 {
-    font-weight: bold;
-}
-
-.mode-buttons {
+/* 按钮 */
+.buttons {
     position: fixed;
     bottom: 20px;
     right: 20px;
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
-.mode-buttons button {
-    padding: 10px;
+.dark-mode-button,
+.grave-mode-button {
+    background-color: transparent;
     border: none;
-    border-radius: 5px;
-    background-color: #f0f0f0;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 24px;
 }
 
-.mode-buttons button:hover {
-    background-color: #e0e0e0;
-}
-
-/* 暗黑模式 */
+/* 黑夜模式 */
 body.dark-mode {
     background-color: black;
-    color: #cccccc;
+    color: lightgray;
 }
 
-body.dark-mode header {
+.navigation.dark-mode {
     background-color: black;
-    color: #cccccc;
+    color: lightgray;
 }
 
-body.tombstone-mode {
+/* 墓碑模式 */
+body.grave-mode {
     filter: grayscale(100%);
+    background-color: gray;
+    color: white;
 }
 
-body.tombstone-mode .mode-buttons button {
-    background-color: #cccccc;
-}
-
-@media (min-width: 768px) {
-    body {
-        background-image: url('/template/pages/pc_image.png');
-    }
-}
-
-@media (max-width: 767px) {
-    body {
-        background-image: url('/template/pages/mp_image.png');
-    }
+.buttons.grave-mode .dark-mode-button,
+.buttons.grave-mode .grave-mode-button {
+    color: white;
 }
