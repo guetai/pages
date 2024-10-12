@@ -1,32 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const backgroundImage = document.querySelector('.background-image');
-    if (backgroundImage) {
-        setBackgroundImage();
-    }
-
-    const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
-    const toggleGraveModeButton = document.getElementById('toggle-grave-mode');
-
-    toggleDarkModeButton.addEventListener('click', toggleDarkMode);
-    toggleGraveModeButton.addEventListener('click', toggleGraveMode);
-
-    function setBackgroundImage() {
-        if (window.innerWidth > 600) {
-            backgroundImage.style.backgroundImage = 'url("/template/pages/pc_image.png")';
+    // 设置背景图片
+    const setBackgroundImage = function(imageUrl) {
+        const backgroundImage = document.querySelector('.background-image');
+        if (backgroundImage) {
+            backgroundImage.style.backgroundImage = `url(${imageUrl})`;
         } else {
-            backgroundImage.style.backgroundImage = 'url("/template/pages/mp_image.png")';
+            console.error('Element with class "background-image" not found.');
         }
-    }
+    };
 
-    function toggleDarkMode() {
+    // 切换黑夜模式
+    document.getElementById('toggle-dark-mode').addEventListener('click', function() {
         document.body.classList.toggle('dark-mode');
-        toggleDarkModeButton.classList.toggle('active');
-        toggleGraveModeButton.classList.remove('active');
-    }
+    });
 
-    function toggleGraveMode() {
+    // 切换墓碑模式
+    document.getElementById('toggle-grave-mode').addEventListener('click', function() {
         document.body.classList.toggle('grave-mode');
-        toggleGraveModeButton.classList.toggle('active');
-        toggleDarkModeButton.classList.remove('active');
-    }
+    });
+
+    // 初始化背景图片
+    setBackgroundImage(window.innerWidth >= 768 ? '/template/pages/pc_image.png' : '/template/pages/mp_image.png');
+});
+
+window.addEventListener('resize', function() {
+    const setBackgroundImage = function(imageUrl) {
+        const backgroundImage = document.querySelector('.background-image');
+        if (backgroundImage) {
+            backgroundImage.style.backgroundImage = `url(${imageUrl})`;
+        } else {
+            console.error('Element with class "background-image" not found.');
+        }
+    };
+
+    setBackgroundImage(window.innerWidth >= 768 ? '/template/pages/pc_image.png' : '/template/pages/mp_image.png');
 });

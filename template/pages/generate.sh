@@ -44,7 +44,7 @@ for file in /edit/pages/*.md; do
     echo "<head>"
     echo "    <meta charset='UTF-8'>"
     echo "    <meta name='viewport' content='width=device-width, initial-scale=1.0'>"
-    echo "    <title>这里是GUETAI项目组的宣传页面</title>"
+    echo "    <title>这里是GUETAI项目组的宣传页面 😊</title>"
     echo "    <link rel='icon' href='/res/icon/20241012.ico'>"
     echo "    <link rel='stylesheet' href='/template/pages/index.css'>"
     echo "    <script src='/template/pages/index.js' defer></script>"
