@@ -3,42 +3,17 @@
 
 你好，我想请你用html+css帮我实现一个页面，要求如下:
 * html和css分开（html在/template/pages/index.html,css在/template/pages/index.css,js在/template/pages/index.js）
-* 标题<title>:
-  浏览时：这里是GUETAI项目组的宣传页面
-  将页面置于后台时：请不要离开我～（这里选择一个颜文字表情，不要加入该括号文字）
+* 标题:（正常）这里是GUETAI项目组的宣传页面（离开页面）请不要离开我～（这里选择一个颜文字表情，不要加入该括号文字）
 * ICON：地址在/res/icon/20241012.ico
-* 切换下鼠标显示效果:
-资源文件在/res/cursor/GlassStarCursors下，有
-```
-"Normal.cur"
-"Help Select.cur"
-"Working in Background.ani"
-"Busy.ani"
-"Precision Select.cur"
-"Text Select.cur"
-"Handwriting.cur"
-"Unavailable.cur"
-"Vertical Resize.cur"
-"Horizontal Resize.cur"
-"Diagonal Resize 1.cur"
-"Diagonal Resize 2.cur"
-"Move.cur"
-"Alternate Select.cur"
-"Link Select.cur"
-```
-请换掉点击、移动这些鼠标指针。
 * 具有导航（色调为粉色），导航固定在网页上方，具有指向主页(s.greenhandzdl.moe或者/)的主页和指向介绍页面的(s.greenhandzdl.moe/about.html或者/about.html)介绍，导航可以点击跳转（行为类似于按钮）
 * 导航在文章部分上方，滚动鼠标滚动时，导航固定在顶部，不要被文章给挡住
-* 背景图片为固定的背景图片,需要加入检测代码:
+* 背景图片为固定的背景图片（是整张图拉伸到页面大小）,需要加入检测代码:
 ```
 注意不要再次出现这些问题（注意css文件确保在设置背景图片之前，页面中的 .background-image 元素确实存在。）
 [Error] TypeError: null is not an object (evaluating 'document.querySelector('.background-image').style')
 	setBackgroundImage (index.js:13)
 	全局代码 (index.js:23)
 [Error] Failed to load resource: the server responded with a status of 500 (Request Blocked) (s.js, line 0)
-```
-```
-CSS3的background-size属性：这个属性可用于调整背景图片的大小。可以将其设置为"cover"，使图片自动拉伸填满容器。（注意拉满整个网页）
 ```
 ```
 PC端（横屏）：
@@ -102,4 +77,5 @@ TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
 [Error] TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
 	（匿名函数） (index.js:19)
 ```
-网页标题<title>没有正确设置:（正常）这里是GUETAI项目组的宣传页面（离开页面）请不要离开我～（这里选择一个颜文字表情，不要加入该括号文字）
+图片不是拉伸到页面大小。
+标题:（正常）这里是GUETAI项目组的宣传页面（离开页面）请不要离开我～（这里选择一个颜文字表情，不要加入该括号文字）

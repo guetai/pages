@@ -1,16 +1,25 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 rm -rf public/pages
 # 创建输出目录
 mkdir -p public/pages
 
 # 获取编辑目录下的所有文件
 files=($(find edit/pages -type f))
+=======
+# 确保在模板目录运行此脚本
+cd /template/pages
 
-# 按照时间顺序排序
-IFS=$'\n' files=($(sort -t. -k1,1 -k2n <<<"${files[*]}"))
-unset IFS
+# 读取/edit/pages下的所有文件并按时间顺序处理
+for file in $(ls -1t /edit/pages); do
+    markdown_content=$(cat "/edit/pages/$file")
+>>>>>>> parent of 658d1cc (feature)
 
+    # 处理Markdown内容
+    markdown_content=$(echo "$markdown_content" | sed -E 's/!\[(.*)\]\((.*)\)/\1 \2/')
+
+<<<<<<< HEAD
 # 获取文件的修改时间
 get_timestamp() {
     if [ -f "$1" ]; then
@@ -43,6 +52,11 @@ for file in "${files[@]}"; do
 
     # 替换媒体
     markdown_content=$(echo "$markdown_content" | sed -E 's/!\[(.*)\]\((.*)\)/\1 \2/' | while read line; do
+=======
+    # 替换图片、视频或音频
+    markdown_content=$(echo "$markdown_content" | sed -E 's/(.*) \((.*)\)/<p>\1<\/p>/g')
+    markdown_content=$(echo "$markdown_content" | while read line; do
+>>>>>>> parent of 658d1cc (feature)
         name=$(echo "$line" | awk '{print $1}')
         url=$(echo "$line" | awk '{print $2}')
         extension="${url##*.}"
@@ -63,6 +77,7 @@ for file in "${files[@]}"; do
     done)
 
     # 生成HTML文件
+<<<<<<< HEAD
     cat <<EOF > "$output_file"
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -90,4 +105,18 @@ for file in "${files[@]}"; do
 </body>
 </html>
 EOF
+=======
+    echo "<!DOCTYPE html>" > "/public/pages/$(date +%s).html"
+    echo "<html lang=\"zh-CN\">" >> "/public/pages/$(date +%s).html"
+    echo "<head>" >> "/public/pages/$(date +%s).html"
+    echo "    <meta charset=\"UTF-8\">" >> "/public/pages/$(date +%s).html"
+    echo "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">" >> "/public/pages/$(date +%s).html"
+    echo "    <title>动态页面</title>" >> "/public/pages/$(date +%s).html"
+    echo "    <link rel=\"stylesheet\" href=\"/template/pages/index.css\">" >> "/public/pages/$(date +%s).html"
+    echo "</head>" >> "/public/pages/$(date +%s).html"
+    echo "<body>" >> "/public/pages/$(date +%s).html"
+    echo "$markdown_content" >> "/public/pages/$(date +%s).html"
+    echo "</body>" >> "/public/pages/$(date +%s).html"
+    echo "</html>" >> "/public/pages/$(date +%s).html"
+>>>>>>> parent of 658d1cc (feature)
 done
