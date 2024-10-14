@@ -10,18 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toggleDarkMode = () => {
         document.body.classList.toggle('dark-mode');
-        const button = document.getElementById('toggleDarkMode');
+        const button = document.querySelector('.dark-mode-toggle');
         button.textContent = button.textContent === '☀️' ? '🌙' : '☀️';
     };
 
     const toggleGraveMode = () => {
         document.body.classList.toggle('grave-mode');
-        const button = document.getElementById('toggleGraveMode');
+        const button = document.querySelector('.tombstone-mode-toggle');
         button.style.color = button.style.color === 'gray' ? 'black' : 'gray';
     };
 
-    document.getElementById('toggleDarkMode').addEventListener('click', toggleDarkMode);
-    document.getElementById('toggleGraveMode').addEventListener('click', toggleGraveMode);
+    document.querySelector('.dark-mode-toggle').addEventListener('click', toggleDarkMode);
+    document.querySelector('.tombstone-mode-toggle').addEventListener('click', toggleGraveMode);
 
     setBackgroundImage();
 });
