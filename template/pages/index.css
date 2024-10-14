@@ -12,16 +12,11 @@ body {
 }
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: pink;
-    color: white;
     display: flex;
     justify-content: space-around;
-    padding: 1rem;
-    z-index: 100;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
 }
 
 .nav-item {
@@ -57,6 +52,7 @@ body {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
+    cursor: url('res/cursor/小猪/候选.cur'), pointer; /* 修改路径 */
 }
 
 .background-image {
@@ -70,77 +66,61 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
 .dark-mode,
 .tombstone-mode {
     background-image: url('res/background/pc_image.png'), /* 修改路径 */
                      url('res/background/pc_image.png'); /* 修改路径 */
 }
-@media (min-width: 768px) {
-    .background-image {
-        background-image: url('/res/background/pc_image.png');
-    }
+
+a:hover,
+button:hover {
+    cursor: url('res/cursor/小猪/候选.cur'), pointer; /* 修改路径 */
 }
 
-@media (max-width: 767px) {
-    .background-image {
-        background-image: url('/res/background/mp_image.png');
-    }
+textarea,
+input {
+    cursor: url('res/cursor/GlassStarCursors/Text Select.cur'), text; /* 修改路径 */
 }
 
-.content {
-    position: relative;
-    margin-top: 60px;
-    max-width: 800px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+body::before,
+body::after {
+    content: "";
+    cursor: url('res/cursor/GlassStarCursors/Help Select.cur'), help, /* 修改路径 */
+            url('res/cursor/GlassStarCursors/Unavailable.cur'), not-allowed; /* 修改路径 */
 }
 
-h1 {
-    text-align: center;
-    font-weight: bold;
+body.resizing,
+.resizing {
+    cursor: url('res/cursor/GlassStarCursors/Vertical Resize.cur'), ns-resize; /* 修改路径 */
 }
 
-.mode-buttons button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5em;
-    color: inherit;
+body.resizing-horizontal,
+.resizing-horizontal {
+    cursor: url('res/cursor/GlassStarCursors/Horizontal Resize.cur'), ew-resize; /* 修改路径 */
 }
 
-#page-title {
-    transition: transform 0.3s ease-in-out;
+body.resizing-diagonal,
+.resizing-diagonal {
+    cursor: url('res/cursor/GlassStarCursors/Diagonal Resize 1.cur'), nwse-resize; /* 修改路径 */
 }
 
-#page-title:hover {
-    transform: scale(1.1);
+body.resizing-diagonal-reverse,
+.resizing-diagonal-reverse {
+    cursor: url('res/cursor/GlassStarCursors/Diagonal Resize 2.cur'), nesw-resize; /* 修改路径 */
 }
 
-body:before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
+body.dragging,
+.dragging {
+    cursor: url('res/cursor/GlassStarCursors/Move.cur'), move; /* 修改路径 */
 }
 
-@media (min-width: 768px) {
-    body:before {
-        background-image: url('/res/background/pc_image.png');
-    }
+body.waiting,
+.waiting {
+    cursor: url('res/cursor/GlassStarCursors/Busy.ani'), wait; /* 修改路径 */
 }
 
-@media (max-width: 767px) {
-    body:before {
-        background-image: url('/res/background/mp_image.png');
-    }
+body.working,
+.working {
+    cursor: url('res/cursor/GlassStarCursors/Working in Background.ani'), progress; /* 修改路径 */
 }
