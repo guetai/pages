@@ -12,7 +12,7 @@ fi
 
 # 执行 /template/pages/generate.sh
 echo "Generating pages..."
-/template/pages/generate.sh
+bash /template/pages/generate.sh
 
 # 检查 generate.sh 是否执行成功
 if [ $? -ne 0 ]; then
@@ -22,7 +22,7 @@ fi
 
 # 执行 /template/index/generate.sh
 echo "Generating index..."
-/template/index/generate.sh
+bash /template/index/generate.sh
 
 # 检查 generate.sh 是否执行成功
 if [ $? -ne 0 ]; then
