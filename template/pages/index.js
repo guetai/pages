@@ -1,9 +1,8 @@
 // index.js
+
 document.addEventListener('DOMContentLoaded', function() {
     // 获取暗黑模式切换按钮
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
-    // 获取墓碑模式切换按钮
-    const tombstoneModeToggle = document.querySelector('.tombstone-mode-toggle');
 
     // 检查 darkModeToggle 是否为 null
     if (!darkModeToggle) {
@@ -12,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // 添加点击事件监听器
         darkModeToggle.addEventListener('click', toggleDarkMode);
     }
+
+    // 获取墓碑模式切换按钮
+    const tombstoneModeToggle = document.querySelector('.tombstone-mode-toggle');
 
     // 检查 tombstoneModeToggle 是否为 null
     if (!tombstoneModeToggle) {
@@ -57,7 +59,7 @@ function setBackgroundImage() {
     }
 
     const isMobile = window.innerWidth <= 768; // 假设 768px 作为移动设备的阈值
-    const imagePath = isMobile ? '/res/background/mp_image.png' : '/res/background/pc_image.png';
+    const imagePath = isMobile ? 'res/background/mp_image.png' : 'res/background/pc_image.png'; /* 修改路径 */
 
     backgroundImage.style.backgroundImage = `url(${imagePath})`;
 }

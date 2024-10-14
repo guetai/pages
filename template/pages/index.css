@@ -1,4 +1,6 @@
 /* index.css */
+
+/* 修改路径为相对路径 */
 body {
     margin: 0;
     padding: 0;
@@ -6,7 +8,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    cursor: url('/res/cursor/GlassStarCursors/Normal.cur'), default;
+    cursor: url('res/cursor/GlassStarCursors/Normal.cur'), default; /* 修改路径 */
 }
 
 .navbar {
@@ -50,7 +52,7 @@ body {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    cursor: url('/res/cursor/小猪/候选.cur'), pointer;
+    cursor: url('res/cursor/小猪/候选.cur'), pointer; /* 修改路径 */
 }
 
 .background-image {
@@ -67,58 +69,58 @@ body {
 
 .dark-mode,
 .tombstone-mode {
-    background-image: url('/res/background/pc_image.png'),
-                     url('/res/background/pc_image.png');
+    background-image: url('res/background/pc_image.png'), /* 修改路径 */
+                     url('res/background/pc_image.png'); /* 修改路径 */
 }
 
 a:hover,
 button:hover {
-    cursor: url('/res/cursor/小猪/候选.cur'), pointer;
+    cursor: url('res/cursor/小猪/候选.cur'), pointer; /* 修改路径 */
 }
 
 textarea,
 input {
-    cursor: url('/res/cursor/GlassStarCursors/Text Select.cur'), text;
+    cursor: url('res/cursor/GlassStarCursors/Text Select.cur'), text; /* 修改路径 */
 }
 
 body::before,
 body::after {
     content: "";
-    cursor: url('/res/cursor/GlassStarCursors/Help Select.cur'), help,
-            url('/res/cursor/GlassStarCursors/Unavailable.cur'), not-allowed;
+    cursor: url('res/cursor/GlassStarCursors/Help Select.cur'), help, /* 修改路径 */
+            url('res/cursor/GlassStarCursors/Unavailable.cur'), not-allowed; /* 修改路径 */
 }
 
 body.resizing,
 .resizing {
-    cursor: url('/res/cursor/GlassStarCursors/Vertical Resize.cur'), ns-resize;
+    cursor: url('res/cursor/GlassStarCursors/Vertical Resize.cur'), ns-resize; /* 修改路径 */
 }
 
 body.resizing-horizontal,
 .resizing-horizontal {
-    cursor: url('/res/cursor/GlassStarCursors/Horizontal Resize.cur'), ew-resize;
+    cursor: url('res/cursor/GlassStarCursors/Horizontal Resize.cur'), ew-resize; /* 修改路径 */
 }
 
 body.resizing-diagonal,
 .resizing-diagonal {
-    cursor: url('/res/cursor/GlassStarCursors/Diagonal Resize 1.cur'), nwse-resize;
+    cursor: url('res/cursor/GlassStarCursors/Diagonal Resize 1.cur'), nwse-resize; /* 修改路径 */
 }
 
 body.resizing-diagonal-reverse,
 .resizing-diagonal-reverse {
-    cursor: url('/res/cursor/GlassStarCursors/Diagonal Resize 2.cur'), nesw-resize;
+    cursor: url('res/cursor/GlassStarCursors/Diagonal Resize 2.cur'), nesw-resize; /* 修改路径 */
 }
 
 body.dragging,
 .dragging {
-    cursor: url('/res/cursor/GlassStarCursors/Move.cur'), move;
+    cursor: url('res/cursor/GlassStarCursors/Move.cur'), move; /* 修改路径 */
 }
 
 body.waiting,
 .waiting {
-    cursor: url('/res/cursor/GlassStarCursors/Busy.ani'), wait;
+    cursor: url('res/cursor/GlassStarCursors/Busy.ani'), wait; /* 修改路径 */
 }
 
 body.working,
 .working {
-    cursor: url('/res/cursor/GlassStarCursors/Working in Background.ani'), progress;
+    cursor: url('res/cursor/GlassStarCursors/Working in Background.ani'), progress; /* 修改路径 */
 }
