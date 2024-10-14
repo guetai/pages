@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑夜模式切换示例</title>
+    <style>
+        /* 样式部分 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .article-content {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .mode-toggle {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode .navbar {
+            background-color: #222;
+        }
+
+        .light-mode .navbar {
+            background-color: #eee;
+            color: black;
+        }
+
+        .dark-mode .navbar a {
+            color: white;
+        }
+
+        .light-mode .navbar a {
+            color: black;
+        }
+
+        .dark-mode .content-container {
+            background-color: #222;
+            color: white;
+        }
+
+        .light-mode .content-container {
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode .page-title,
+        .dark-mode .article-content {
+            color: white;
+        }
+
+        .light-mode .page-title,
+        .light-mode .article-content {
+            color: black;
+        }
+
+        .dark-mode .mode-toggle {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .light-mode .mode-toggle {
+            background-color: #4CAF50;
+            color: black;
+        }
+
+        .dark-mode a:hover,
+        .dark-mode button:hover {
+            cursor: url('res/cursor/小猪/候选.cur'), pointer; /* 修改路径 */
+        }
+
+        .light-mode a:hover,
+        .light-mode button:hover {
+            cursor: url('res/cursor/小猪/候选.cur'), pointer; /* 修改路径 */
+        }
+
+        textarea,
+        input {
+            cursor: url('res/cursor/GlassStarCursors/Text Select.cur'), text; /* 修改路径 */
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            cursor: url('res/cursor/GlassStarCursors/Help Select.cur'), help, /* 修改路径 */
+                    url('res/cursor/GlassStarCursors/Unavailable.cur'), not-allowed; /* 修改路径 */
+        }
+
+        body.resizing,
+        .resizing {
+            cursor: url('res/cursor/GlassStarCursors/Vertical Resize.cur'), ns-resize; /* 修改路径 */
+        }
+
+        body.resizing-horizontal,
+        .resizing-horizontal {
+            cursor: url('res/cursor/GlassStarCursors/Horizontal Resize.cur'), ew-resize; /* 修改路径 */
+        }
+
+        body.resizing-diagonal,
+        .resizing-diagonal {
+            cursor: url('res/cursor/GlassStarCursors/Diagonal Resize 1.cur'), nwse-resize; /* 修改路径 */
+        }
+
+        body.resizing-diagonal-reverse,
+        .resizing-diagonal-reverse {
+            cursor: url('res/cursor/GlassStarCursors/Diagonal Resize 2.cur'), nesw-resize; /* 修改路径 */
+        }
+
+        body.dragging,
+        .dragging {
+            cursor: url('res/cursor/GlassStarCursors/Move.cur'), move; /* 修改路径 */
+        }
+
+        body.waiting,
+        .waiting {
+            cursor: url('res/cursor/GlassStarCursors/Busy.ani'), wait; /* 修改路径 */
+        }
+
+        body.working,
+        .working {
+            cursor: url('res/cursor/GlassStarCursors/Working in Background.ani'), progress; /* 修改路径 */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#">首页</a>
+        <a href="#">关于</a>
+        <a href="#">联系我们</a>
+        <button class="mode-toggle">切换模式</button>
+    </nav>
+
+    <div class="content-container">
+        <h1 class="page-title">欢迎来到我们的网站</h1>
+        <p class="article-content">这是一个示例页面，展示了如何在网页中实现白天和黑夜模式的切换。</p>
+    </div>
+
+    <script>
+        // JavaScript部分
+        document.addEventListener('DOMContentLoaded', function() {
+            const modeToggle = document.querySelector('.mode-toggle');
+
+            modeToggle.addEventListener('click', function() {
+                const body = document.body;
+                if (body.classList.contains('dark-mode')) {
+                    body.classList.remove('dark-mode');
+                    body.classList.add('light-mode');
+                    modeToggle.textContent = '🌙';
+                } else {
+                    body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                    modeToggle.textContent = '☀️';
+                }
+            });
+
+            // 初始状态
+            if (localStorage.getItem('mode') === 'dark') {
+                document.body.classList.add('dark-mode');
+                modeToggle.textContent = '🌙';
+            } else {
+                document.body.classList.add('light-mode');
+                modeToggle.textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>
