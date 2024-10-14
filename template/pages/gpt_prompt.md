@@ -8,6 +8,7 @@
 * 具有导航（色调为粉色），导航固定在网页上方，具有指向主页(s.greenhandzdl.moe或者/)的主页和指向介绍页面的(s.greenhandzdl.moe/about.html或者/about.html)介绍，导航可以点击跳转（行为类似于按钮）
 * 导航在文章部分上方，滚动鼠标滚动时，导航固定在顶部，不要被文章给挡住
 * 背景图片为固定的背景图片（是整张图拉伸到页面大小）,需要加入检测代码:
+CSS3的background-size属性：这个属性可用于调整背景图片的大小。可以将其设置为"cover"，使图片自动拉伸填满容器。（注意拉满整个网页）
 ```
 注意不要再次出现这些问题（注意css文件确保在设置背景图片之前，页面中的 .background-image 元素确实存在。）
 [Error] TypeError: null is not an object (evaluating 'document.querySelector('.background-image').style')
@@ -64,18 +65,3 @@ PC端（横屏）：
         esac
     done)
 ```
-
-第二次输入：
-你生成代码的js出现了错误：
-```
-TypeError: null is not an object (evaluating 'document.querySelector('.background-image').style')
-```
-```
-TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
-```
-```
-[Error] TypeError: null is not an object (evaluating 'darkModeToggle.addEventListener')
-	（匿名函数） (index.js:19)
-```
-图片不是拉伸到页面大小。
-标题:（正常）这里是GUETAI项目组的宣传页面（离开页面）请不要离开我～（这里选择一个颜文字表情，不要加入该括号文字）

@@ -1,68 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // 获取暗黑模式切换按钮
-    const darkModeToggle = document.querySelector('.dark-mode-toggle');
-    // 获取墓碑模式切换按钮
-    const tombstoneModeToggle = document.querySelector('.tombstone-mode-toggle');
+document.addEventListener('DOMContentLoaded', () => {
+    const setBackgroundImage = () => {
+        const backgroundImage = document.querySelector('.background-image');
+        if (window.innerWidth > 600) {
+            backgroundImage.style.backgroundImage = "url('/res/background/pc_image.png')";
+        } else {
+            backgroundImage.style.backgroundImage = "url('/res/background/mp_image.png')";
+        }
+    };
 
-    // 检查 darkModeToggle 是否为 null
-    if (!darkModeToggle) {
-        console.error('无法找到 .dark-mode-toggle 元素');
-    } else {
-        // 添加点击事件监听器
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-    }
+    const toggleDarkMode = () => {
+        document.body.classList.toggle('dark-mode');
+        const button = document.getElementById('toggleDarkMode');
+        button.textContent = button.textContent === '☀️' ? '🌙' : '☀️';
+    };
 
-    // 检查 tombstoneModeToggle 是否为 null
-    if (!tombstoneModeToggle) {
-        console.error('无法找到 .tombstone-mode-toggle 元素');
-    } else {
-        // 添加点击事件监听器
-        tombstoneModeToggle.addEventListener('click', toggleTombstoneMode);
-    }
+    const toggleGraveMode = () => {
+        document.body.classList.toggle('grave-mode');
+        const button = document.getElementById('toggleGraveMode');
+        button.style.color = button.style.color === 'gray' ? 'black' : 'gray';
+    };
 
-    // 设置背景图片
+    document.getElementById('toggleDarkMode').addEventListener('click', toggleDarkMode);
+    document.getElementById('toggleGraveMode').addEventListener('click', toggleGraveMode);
+
     setBackgroundImage();
-
-    // 检测系统偏好设置
-    if (window.matchMedia) {
-        var mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-        mediaQueryList.addListener(function(e) {
-            if (e.matches) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-        });
-    }
 });
-
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const darkModeToggle = document.querySelector('.dark-mode-toggle');
-    if (darkModeToggle) {
-        darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
-    }
-}
-
-function toggleTombstoneMode() {
-    document.body.classList.toggle('tombstone-mode');
-    const tombstoneModeToggle = document.querySelector('.tombstone-mode-toggle');
-    if (tombstoneModeToggle) {
-        tombstoneModeToggle.textContent = document.body.classList.contains('tombstone-mode') ? '🪦' : '🪦';
-    }
-}
-
-document.addEventListener('visibilitychange', function() {
-    if (document.visibilityState === 'hidden') {
-        document.title = '请不要离开我～';
-    } else {
-        document.title = '这里是GUETAI项目组的宣传页面';
-    }
-});
-
-function setBackgroundImage() {
-    const backgroundImage = document.querySelector('.background-image');
-    if (backgroundImage) {
-        backgroundImage.style.display = 'block';
-    }
-}
