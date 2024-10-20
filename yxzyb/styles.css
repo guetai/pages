@@ -1,0 +1,160 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #181818;
+    color: #c0c0c0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #111;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 36px;
+    transition: transform 0.5s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header:hover h1 {
+    transform: scale(1.1);
+}
+
+main {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+section.intro p {
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+main.appeared section.intro p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section.features h2 {
+    font-size: 24px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+    section.features h2::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #c0c0c0;
+        transition: width 0.5s ease;
+    }
+
+    section.features h2:hover::before {
+        width: 100%;
+    }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+main.appeared li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    background-color: #111;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.soul-like-element {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+    .soul-like-element img {
+        width: 50px;
+        height: 50px;
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    }
+
+.health-bar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    height: 20px;
+    background-color: #444;
+    border: 2px solid #c0c0c0;
+}
+
+.health {
+    height: 20px;
+    background-color: #ff0000;
+    transition: width 0.5s ease;
+}
+
+.stamina-bar {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 200px;
+    height: 20px;
+    background-color: #444;
+    border: 2px solid #c0c0c0;
+}
+
+.stamina {
+    height: 20px;
+    background-color: #00ff00;
+    transition: width 0.5s ease;
+}
+
+/* 添加魂类游戏风格的按钮 */
+.button-soul-like {
+    background-color: #333;
+    color: #c0c0c0;
+    padding: 10px 20px;
+    border: 2px solid #c0c0c0;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .button-soul-like:hover {
+        background-color: #555;
+        transform: scale(1.1);
+    }
+
+/* 添加破旧的边框效果 */
+.content-with-border {
+    border: 2px solid #c0c0c0;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
