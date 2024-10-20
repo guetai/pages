@@ -7,6 +7,13 @@ fi
 
 # 读取edit/pages下的所有文件并按时间顺序处理
 for file in $(ls -1t edit/pages); do
+    # 获取文件的最后修改时间戳
+    timestamp=$(stat -f "%m" "edit/pages/$file")
+
+    # 获取文件名（不包括路径）
+    filename=$(basename "$file")
+
+    # 读取文件内容
     markdown_content=$(cat "edit/pages/$file")
 
     # 处理Markdown内容
@@ -33,20 +40,20 @@ for file in $(ls -1t edit/pages); do
         esac
     done)
 
-    # 生成HTML文件
-    timestamp=$(date +%s)
-    output_file="${timestamp}.html"
+    # 生成HTML文件名
+    output_file="${timestamp}_${filename%.md}.html"
     # 确保文件名中不包含特殊字符
     output_file=$(echo "$output_file" | tr -cd '[:alnum:]-_.')
     output_file="public/pages/$output_file"
     
+    # 渲染HTML文件
     cat <<EOF > "$output_file"
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$url</title>
+    <title>$filename</title>
     <link rel="stylesheet" href="/template/pages/index.css">
 </head>
 <body>
@@ -58,7 +65,7 @@ for file in $(ls -1t edit/pages); do
     <div class="background-image"></div>
 
     <main class="content">
-        <h1>$url</h1>
+        <h1>$filename</h1>
         <p>以下是生成的内容：</p>
         $markdown_content
     </main>

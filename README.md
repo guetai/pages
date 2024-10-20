@@ -12,3 +12,4 @@
 问题：参看depoly.sh，渲染索引界面出现问题
 ```
 [凡科starwishXxX](http://et30285413-1.jzfkw.net/)
+[yxzyb](https://s.greenhandzdl.moe/yxzyb)
